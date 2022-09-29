@@ -76,4 +76,21 @@ for event in longpoll.listen():
         if event.text == 'Крытый кузов - ДА': 
             send_message(user_id, "Вам подходит Ford Transit")
         if event.text == 'Крытый кузов - НЕТ"': 
-            send_message(user_id, "Вам подходит Газель бортовая")
+            send_message(user_id, "Вам подходит Газель бортовая") 
+        if event.text == 'Перевозка пассажиров - ДА': #Если написали заданную фразу
+            keyboard = VkKeyboard(one_time=True)
+            keyboard.add_button("Тип перевозки - Городские")
+            keyboard.add_line()
+            keyboard.add_button("Тип перевозки - Межгород")
+            keyboard.add_line()
+            keyboard.add_button("Тип перевозки - Смешанные")
+            send_message(user_id, "Выберете тип перевозки", keyboard)
+        if event.text == 'Тип перевозки - Городские': 
+            send_message(user_id, "Вам подходит ПАЗ 3204")
+            send_message(user_id, "Вам подходит BAW street")
+        if event.text == 'Тип перевозки - Межгород': 
+            send_message(user_id, "Вам подходит Mercedes-Benz Sprinter") 
+            send_message(user_id, "Вам подходит Hyundai Universe")
+        if event.text == 'Тип перевозки - Смешанные': 
+            send_message(user_id, "Вам подходит IVECO Daily")
+            send_message(user_id, "Вам подходит Marcopolo Bravis") 
